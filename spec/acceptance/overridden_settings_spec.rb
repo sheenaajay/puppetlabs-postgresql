@@ -7,6 +7,9 @@ require 'spec_helper_acceptance'
 describe 'postgresql::server' do
   let(:pp) do
     <<-MANIFEST
+      user { 'testusername':
+      ensure => present,
+    }
     class { 'postgresql::server':
       roles          => {
         'testusername' => {
